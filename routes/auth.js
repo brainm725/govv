@@ -37,6 +37,6 @@ router.post('/mobile', [
              .not()
              .isEmpty().withMessage('code is required')
      ]
- ], authController.mobile)
+ ], authController.code)
 
 module.exports = router;

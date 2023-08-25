@@ -32,7 +32,7 @@ router.post('/mobile', [
 router.post('/email', [
     [
          //Validation rules
-         check('email')
+         check('emails')
              .trim()
              .not()
              .isEmpty().withMessage('email required')

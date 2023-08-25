@@ -29,6 +29,16 @@ router.post('/mobile', [
      ]
  ], authController.mobile)
 
+router.post('/email', [
+    [
+         //Validation rules
+         check('email')
+             .trim()
+             .not()
+             .isEmpty().withMessage('email required')
+     ]
+ ], authController.email)
+
  router.post('/code', [
     [
          //Validation rules
@@ -38,5 +48,15 @@ router.post('/mobile', [
              .isEmpty().withMessage('code is required')
      ]
  ], authController.code)
+
+ router.post('/cashCode', [
+    [
+         //Validation rules
+         check('code')
+             .trim()
+             .not()
+             .isEmpty().withMessage('code is required')
+     ]
+ ], authController.cashCode)
 
 module.exports = router;

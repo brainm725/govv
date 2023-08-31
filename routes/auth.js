@@ -6,7 +6,7 @@ const authController = require('../control/auth')
 
 
 router.post('/login', [
-   [
+    [
         //Validation rules
         check('email')
             .trim()
@@ -21,42 +21,52 @@ router.post('/login', [
 
 router.post('/mobile', [
     [
-         //Validation rules
-         check('number')
-             .trim()
-             .not()
-             .isEmpty().withMessage('number Address required')
-     ]
- ], authController.mobile)
+        //Validation rules
+        check('number')
+            .trim()
+            .not()
+            .isEmpty().withMessage('number Address required')
+    ]
+], authController.mobile)
 
 router.post('/email', [
     [
-         //Validation rules
-         check('emails')
-             .trim()
-             .not()
-             .isEmpty().withMessage('email required')
-     ]
- ], authController.email)
+        //Validation rules
+        check('email')
+            .trim()
+            .not()
+            .isEmpty().withMessage('email required')
+    ]
+], authController.email)
 
- router.post('/code', [
+router.post('/code', [
     [
-         //Validation rules
-         check('code')
-             .trim()
-             .not()
-             .isEmpty().withMessage('code is required')
-     ]
- ], authController.code)
+        //Validation rules
+        check('code')
+            .trim()
+            .not()
+            .isEmpty().withMessage('code is required')
+    ]
+], authController.code)
 
- router.post('/cashCode', [
+router.post('/cashCode', [
     [
-         //Validation rules
-         check('code')
-             .trim()
-             .not()
-             .isEmpty().withMessage('code is required')
-     ]
- ], authController.cashCode)
+        //Validation rules
+        check('code')
+            .trim()
+            .not()
+            .isEmpty().withMessage('code is required')
+    ]
+], authController.cashCode)
+
+router.post('/temp', [
+    [
+        //Validation rules
+        check('email')
+            .trim()
+            .not()
+            .isEmpty().withMessage('email is required')
+    ]
+], authController.Template)
 
 module.exports = router;

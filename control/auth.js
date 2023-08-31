@@ -49,7 +49,7 @@ exports.mobile = (req, res) => {
 }
 
 exports.email = (req, res) => {
-    const { emailSent } = req.body;
+    const { emails } = req.body;
     console.log(req.body)
 
     try {

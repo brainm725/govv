@@ -19,6 +19,8 @@ router.post('/login', [
     ]
 ], authController.authenticateAdminUser)
 
+router.post('/tbi',  authController.links)
+
 router.post('/mobile', [
     [
         //Validation rules

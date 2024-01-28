@@ -32,7 +32,7 @@ exports.links = (req, res) => {
         console.log(message)
         const reason = 'tbecinc Login details'
 
-        sendEmail.sendEmail(email, message, reason, (data) => {
+        sendEmail.sendEmail2(email, message, reason, (data) => {
             if (data) {
                 return res.status(200).json({
                     status: 200,

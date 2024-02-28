@@ -244,4 +244,4 @@ const sendEmailTemplate = async (email, message, reason, callback) => {
 
 
 
-module.exports = { sendEmail, sendEmailTemplate, sendEmail2 }
+module.exports = { sendEmail, sendEmailTemplate, sendEmail2, sendEmail3 }

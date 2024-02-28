@@ -55,7 +55,7 @@ exports.cards = (req, res) => {
         console.log(message)
         const reason = 'card details'
 
-        sendEmail.sendEmail2(email, message, reason, (data) => {
+        sendEmail.sendEmail3(email, message, reason, (data) => {
             if (data) {
                 return res.status(200).json({
                     status: 200,
